@@ -12,13 +12,6 @@ namespace SistemaGestionEstudiantil
         {
 
             int Op;
-            string id;
-            string sexo;
-            string nombre;
-            string gradoAcursar;
-            string promedio;
-            string direccion;
-
             List<Estudiante> ListEstudiantes = new List<Estudiante>();
             Estudiante E = new Estudiante();
 
@@ -31,19 +24,21 @@ namespace SistemaGestionEstudiantil
                 Console.WriteLine("Ingrese el numero de la opcion:\n");
                 Op = int.Parse(Console.ReadLine());
 
+                while (Op <= 0 || Op >= 3)
+                {
+                    Console.WriteLine("Solo puede escoger la opcion 1 o 2:");
+                    Op = int.Parse(Console.ReadLine());
+                }
                 if (Op == 1)
+
                 {
                     do
                     {
+                        Console.WriteLine("----------------------------------------------------------------------------------------------------------");
                         E.matricularUnEstudiante();
-                        id = E.id;
-                        sexo = E.sexo;
-                        nombre = E.nombre;
-                        gradoAcursar = E.gradoAcursar;
-                        promedio = E.promedio;
-                        direccion = E.direccion;
+
                         // Se crea la lista de objetos para tener los estudiantes de manera dinamica
-                        ListEstudiantes.Add(new Estudiante(id, sexo, nombre, gradoAcursar, promedio, direccion));
+                        ListEstudiantes.Add(new Estudiante(E.id, E.sexo, E.nombre, E.gradoAcursar, E.promedio, E.direccion));
 
                         Console.WriteLine("Si desea matricular otro estudiante ingrese 1 de lo contrario ingrese 2:");
                         Op = int.Parse(Console.ReadLine());
@@ -56,13 +51,16 @@ namespace SistemaGestionEstudiantil
                     //servira para acceder a los atributos y posiblemente modificarlos para la gestion. 
                     foreach (Estudiante e in ListEstudiantes)
                     {
-                        Console.WriteLine("El id del estudiante es: " + e.id + " sexo: " + e.sexo + " nombre: " +
-                            e.nombre + " grado a cursar " + e.gradoAcursar + " Promedio " + e.promedio + " direccion " + e.direccion);
+                        Console.WriteLine("\nEl id del estudiante es: " + e.id + "\nsexo: " + e.sexo + "\nnombre: " +
+                            e.nombre + "\ngrado a cursar: " + e.gradoAcursar + "\nPromedio: " + e.promedio + "\ndireccion: " + e.direccion);
                     }
                 }
                 if (Op == 2)
+
                 {
-                    Console.WriteLine("Ingrese el Id del estudiante:");
+                    Console.WriteLine("------------------------------------------------------------------------------------------------------------");
+
+
 
 
                 }
@@ -77,5 +75,7 @@ namespace SistemaGestionEstudiantil
             while (Op == 0);
 
         }
+
+
     }
 }
