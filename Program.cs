@@ -40,7 +40,8 @@ namespace SistemaGestionEstudiantil
                         // Se crea la lista de objetos para tener los estudiantes de manera dinamica
                         ListEstudiantes.Add(new Estudiante(E.id, E.sexo, E.nombre, E.gradoAcursar, E.promedio, E.direccion));
 
-                        Console.WriteLine("Si desea matricular otro estudiante ingrese 1 de lo contrario ingrese 2:");
+                        Console.WriteLine("1. Desea ingresar un nuevo estudiante ");
+                        Console.WriteLine("2. Desea gestionar la informacion de un estudiante");
                         Op = int.Parse(Console.ReadLine());
 
                     } while (Op == 1);
@@ -55,25 +56,32 @@ namespace SistemaGestionEstudiantil
                             e.nombre + "\ngrado a cursar: " + e.gradoAcursar + "\nPromedio: " + e.promedio + "\ndireccion: " + e.direccion);
                     }
                 }
+
+                
                 if (Op == 2)
 
                 {
                     Console.WriteLine("------------------------------------------------------------------------------------------------------------");
+                    Console.WriteLine("1. Modificar informacion de un estudiante.");
+                    Console.WriteLine("2. Solcitar info de un estudiante. ");
+                    int p = int.Parse(Console.ReadLine());
+                    if (p == 1)
+                    {
+                        E.modificarDatos(ListEstudiantes);
+                    }
+                    if (p == 2)
 
-
-
-
+                    {
+                        E.SolicitarInfo(ListEstudiantes);
+                    }
                 }
 
-                Console.WriteLine("Desea conocer el id del estudiante matriculado?\n");
-
-
-
+                Console.WriteLine("Se vereifica la info");
+                E.SolicitarInfo(ListEstudiantes);
                 Console.ReadKey();
-
             }
             while (Op == 0);
-
+            
         }
 
 

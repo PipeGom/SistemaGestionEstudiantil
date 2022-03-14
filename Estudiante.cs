@@ -18,7 +18,7 @@ namespace SistemaGestionEstudiantil
 
 
         public Estudiante(string id = "", string sexo = "", string nombre = "", string gradoAcursar = "",
-                                               string promedio = "", string direccion = "", List<Estudiante> lista = new List<Estudiante>())
+                                               string promedio = "", string direccion = "")
         {
 
             this.id = id;
@@ -27,7 +27,6 @@ namespace SistemaGestionEstudiantil
             this.gradoAcursar = gradoAcursar;
             this.promedio = promedio;
             this.direccion = direccion;
-            this.lista = 
 
         }
 
@@ -46,16 +45,11 @@ namespace SistemaGestionEstudiantil
             Console.WriteLine("Ingrese la direccion de residencia del estudiante: ");
             direccion = Console.ReadLine();
 
-
-
-
-
-
-
         }
-        public void modificarDatos()
+
+        public void modificarDatos(List<Estudiante> b)
         {
-            Console.WriteLine("--------------------Opciones-------------------------");
+            /*Console.WriteLine("--------------------Opciones-------------------------");
             Console.WriteLine("1. Modificar ID");
             Console.WriteLine("2. Modificar Sexo");
             Console.WriteLine("3. Modificar Nombre");
@@ -65,46 +59,50 @@ namespace SistemaGestionEstudiantil
             Console.WriteLine("7. Modificar Seguro social");
             Console.WriteLine("8. Modificar Fecha de Nacimiento");
             Console.WriteLine("9. Modificar Sede");
-            Console.WriteLine("10. Modificar Condiciones especiales");
+            Console.WriteLine("10. Modificar Condiciones especiales");*/
 
-
-            int Op = int.Parse(Console.ReadLine());
-            while (Op < 1 || Op > 6);
-                Console.WriteLine("Opcion no valida");
-                Op = int.Parse(Console.ReadLine());
-
-            if (Op == 1)
+            Console.WriteLine("Ingrese el Id del estudiante que necesita modificar");
+            string p= Console.ReadLine();
+            foreach (Estudiante e in b)
             {
-                this.id = Console.ReadLine();
+                if (p == e.id) 
+                {
+                    Console.WriteLine("1. Modificar el Id ");
+                    Console.WriteLine("2. Modificar el nombre ");
+                    Console.WriteLine("Ingrese la opcion del dato que desea modificar: ");
+                    int m = int.Parse(Console.ReadLine());
+                    if (m == 1)
+                    {
+                        Console.WriteLine("Ingrese el nuevo id:\n");
+                        e.id = Console.ReadLine();
+                    }
+                    else if (m == 2) 
+                    {
+                        Console.WriteLine("Ingrese el nuevo nombre :\n");
+                        e.nombre = Console.ReadLine();  
+                    }
+                }
             }
-            if (Op == 2)
-            {
-                this.sexo = Console.ReadLine();
-            }
-            if(Op == 3)
-            {
-                this.nombre = Console.ReadLine();
-            }
-            if (Op == 4)
-            {
-                this.gradoAcursar = Console.ReadLine();
-            }
-            if (Op == 5)
-            {
-                this.promedio = Console.ReadLine();
-            }
-            if (Op == 6)
-            {
-                this.direccion = Console.ReadLine();
-            }
-
 
 
         }
-        public object BuscarEstudiante(List<Estudiante> a)
+        public string SolicitarInfo(List<Estudiante> b) 
         {
-            foreach (Estudiante e in ListEstudiantes)
+            Console.WriteLine("Ingrese el Id del estudiante que necesita Consultar");
+            string j = Console.ReadLine();
+   
+            //Para buscar un atributo de un estudiante dentro de la lista 
+            foreach (Estudiante e in b)
+            {
+                if (j == e.id)
+                {
+                    Console.WriteLine("El id del estudiante es: \n" + e.id + " sexo: \n" + e.sexo + " nombre: \n" +
+                        e.nombre + " grado a cursar \n" + e.gradoAcursar + " Promedio \n" + e.promedio + " direccion \n" + e.direccion);
+                }
+            }
+            return "El estudiante no se encuentra matriuculado :( ";
         }
+
        
     }
 }
