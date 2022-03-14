@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaGestionEstudiantil
 {
-    internal class Estudiante: Program
+    internal class Estudiante: Acudiente
     {
         public string id;
         public string sexo;
@@ -14,11 +14,12 @@ namespace SistemaGestionEstudiantil
         public string gradoAcursar;
         public string promedio;
         public string direccion;
+        public object acudiente;
 
 
 
         public Estudiante(string id = "", string sexo = "", string nombre = "", string gradoAcursar = "",
-                                               string promedio = "", string direccion = "")
+                                               string promedio = "", string direccion = "", object acudiente = null)
         {
 
             this.id = id;
@@ -27,10 +28,11 @@ namespace SistemaGestionEstudiantil
             this.gradoAcursar = gradoAcursar;
             this.promedio = promedio;
             this.direccion = direccion;
+            this.acudiente = acudiente;
 
         }
 
-        public void matricularUnEstudiante()
+        public void matricularUnEstudiante(object Acudiente)
         {
             Console.WriteLine("Ingrese el id del estudiante: ");
             id = Console.ReadLine();
@@ -44,6 +46,7 @@ namespace SistemaGestionEstudiantil
             promedio = Console.ReadLine();
             Console.WriteLine("Ingrese la direccion de residencia del estudiante: ");
             direccion = Console.ReadLine();
+            acudiente = Acudiente;
 
         }
 
@@ -100,7 +103,7 @@ namespace SistemaGestionEstudiantil
                         e.nombre + " grado a cursar \n" + e.gradoAcursar + " Promedio \n" + e.promedio + " direccion \n" + e.direccion);
                 }
             }
-            return "El estudiante no se encuentra matriuculado :( ";
+            return "El estudiante no se encuentra matriculado :( ";
         }
 
        
