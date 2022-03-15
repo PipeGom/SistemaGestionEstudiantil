@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaGestionEstudiantil
 {
-    internal class Acudiente : Program
+    internal class Acudiente
     {
         public string id;
         public string sexo;
@@ -25,43 +25,38 @@ namespace SistemaGestionEstudiantil
             this.parentezco = parentezco;
         }
 
-        public void AgregarAcudiente()
+        public void agregarAcudiente()
         {
-            Console.WriteLine("Ingrese el id del acudiente: ");
+            Console.Write("           Ingrese el id del acudiente: ");
             id = Console.ReadLine();
-            Console.WriteLine("Ingrese el sexo del acudiente: ");
+            Console.Write("           Ingrese el sexo del acudiente: ");
             sexo = Console.ReadLine();
-            Console.WriteLine("Ingrese el nombre del acudiente: ");
+            Console.Write("           Ingrese el nombre del acudiente: ");
             nombre = Console.ReadLine();
-            Console.WriteLine("Ingrese el contacto del acudiente: ");
+            Console.Write("           Ingrese el contacto del acudiente: ");
             contacto = Console.ReadLine();
-            Console.WriteLine("Ingrese el parentezco del acudiente: ");
+            Console.Write("           Ingrese el parentezco del acudiente: ");
             parentezco = Console.ReadLine();
         }
 
-        public void modificarDatos(List<Acudiente> b)
+        public void modificarDatosAcudiente(List<Acudiente> b)
         {
-            /*Console.WriteLine("--------------------Opciones-------------------------");
-            Console.WriteLine("1. Modificar ID");
-            Console.WriteLine("2. Modificar Sexo");
-            Console.WriteLine("3. Modificar Nombre");
-            Console.WriteLine("4. Modificar Grado");
-            Console.WriteLine("5. Modificar Promedio");
-            Console.WriteLine("6. Modificar Direccion");
-            Console.WriteLine("7. Modificar Seguro social");
-            Console.WriteLine("8. Modificar Fecha de Nacimiento");
-            Console.WriteLine("9. Modificar Sede");
-            Console.WriteLine("10. Modificar Condiciones especiales");*/
-
-            Console.WriteLine("Ingrese el Id del acudiente que necesita modificar");
+    
+            Console.Write("\n                              Ingrese el Id del acudiente que necesita modificar: ");
             string p = Console.ReadLine();
+
             foreach (Acudiente e in b)
             {
                 if (p == e.id)
                 {
-                    Console.WriteLine("1. Modificar el Id ");
-                    Console.WriteLine("2. Modificar el nombre ");
-                    Console.WriteLine("Ingrese la opcion del dato que desea modificar: ");
+                    Console.WriteLine("-----------------------------Opciones--------------------------------");
+                    Console.WriteLine("1. Modificar ID");
+                    Console.WriteLine("2. Modificar Sexo");
+                    Console.WriteLine("3. Modificar Nombre");
+                    Console.WriteLine("4. Modificar Contacto");
+                    Console.WriteLine("5. Modificar Parenteszco");
+                    Console.Write("Ingrese la opcion del dato que desea modificar: ");
+
                     int m = int.Parse(Console.ReadLine());
                     if (m == 1)
                     {
@@ -70,17 +65,34 @@ namespace SistemaGestionEstudiantil
                     }
                     else if (m == 2)
                     {
-                        Console.WriteLine("Ingrese el nuevo nombre :\n");
+                        Console.WriteLine("Ingrese el nuevo Sexo :\n");
+                        e.sexo = Console.ReadLine();
+                    }
+                    else if (m == 3)
+                    {
+                        Console.WriteLine("Ingrese el nuevo Nombre :\n");
                         e.nombre = Console.ReadLine();
                     }
+                    else if (m == 4)
+                    {
+                        Console.WriteLine("Ingrese el nuevo Contacto :\n");
+                        e.contacto = Console.ReadLine();
+                    }
+                    else if (m == 5)
+                    {
+                        Console.WriteLine("Ingrese el nuevo Parentezco :\n");
+                        e.parentezco = Console.ReadLine();
+                    }
+                  
                 }
             }
 
 
         }
-        public string SolicitarInfo(List<Acudiente> b)
+
+        public string solicitarInfoAcudiente(List<Acudiente> b)
         {
-            Console.WriteLine("Ingrese el Id del acudiente que necesita Consultar");
+            Console.Write("\n                              Ingrese el Id del acudiente que necesita Consultar: ");
             string j = Console.ReadLine();
 
             //Para buscar un atributo de un estudiante dentro de la lista 
@@ -88,16 +100,18 @@ namespace SistemaGestionEstudiantil
             {
                 if (j == e.id)
                 {
-                    Console.WriteLine("El id del acudiente es: \n" + e.id + " sexo: \n" + e.sexo + " nombre: \n" +
-                        e.nombre + " contacto: \n" + " parentezco: \n");
+                    Console.WriteLine("\n                                       El id del acudiente es: " + e.id + "\n                                       sexo: " + e.sexo + "\n                                       nombre: " +
+                        e.nombre + "\n                                       contacto: " + "\n                                       parentezco: " + e.parentezco + "\n");
                 }
             }
-            return "No se encontro el acudiente :( ";
+            return "                                       No se encontro el acudiente :( \n";
         }
-        public object PasarAcudiente(List<Acudiente> b)
+
+        public object pasarAcudiente(List<Acudiente> b)
         {
-            Console.WriteLine("Ingrese el Id del acudiente que necesita buscar: ");
+            Console.Write("\n           Ingrese el Id del acudiente del estudiante: ");
             string j = Console.ReadLine();
+            Console.WriteLine("");
 
             //Para buscar un atributo de un estudiante dentro de la lista 
             foreach (Acudiente e in b)
@@ -109,8 +123,5 @@ namespace SistemaGestionEstudiantil
             }
             return "No se encontro el acudiente (*/ω＼*) ";
         }
-
-
     }
 }
-
