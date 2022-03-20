@@ -8,44 +8,71 @@ namespace SistemaGestionEstudiantil
 {
     internal class Estudiante : Acudiente
     {
-        public string id;
-        public string sexo;
-        public string nombre;
-        public string gradoAcursar;
-        public string promedio;
-        public string direccion;
-        public object acudiente;
+        private string id;
+        private string sexo;
+        private string nombre;
+        private string gradoAcursar;
+        private string promedio;
+        private string direccion;
+        public Acudiente acudiente;
 
+        public string Id { get => id; set => id = value; }
+        public string Sexo { get => sexo; set => sexo = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string GradoAcursar { get => gradoAcursar; set => gradoAcursar = value; }
+        public string Promedio { get => promedio; set => promedio = value; }
+        public string Direccion { get => direccion; set => direccion = value; }
 
-
-        public Estudiante(string id = "", string sexo = "", string nombre = "", string gradoAcursar = "",
-                                               string promedio = "", string direccion = "", object acudiente = null)
+        public Estudiante(string id= "", string sexo = "", string nombre = "", string gradoAcursar = "",
+                                               string promedio = "", string direccion = "", string nombreAcum = "", string idAcum = "", string sexoAcum = "", string contactoAcum = "",  string parentezcoAcum = "", Acudiente acudiente = null)
         {
-            this.id = id;
-            this.sexo = sexo;
-            this.nombre = nombre;
-            this.gradoAcursar = gradoAcursar;
-            this.promedio = promedio;
-            this.direccion = direccion;
-            this.acudiente = acudiente;
+            this.Id = id;
+            this.Sexo = sexo;
+            this.Nombre = nombre;
+            this.GradoAcursar = gradoAcursar;
+            this.Promedio = promedio;
+            this.Direccion = direccion;
+            this.NombreAcudiente = nombreAcum;
+            this.IdAcudiente = idAcum;
+            this.SexoAcudiente = sexoAcum;
+            this.ContactoAcudiente = contactoAcum;
+            this.ParentezcoAcudiente = parentezcoAcum;
+            this.acudiente = new Acudiente(nombreAcum, idAcum, sexoAcum, contactoAcum, parentezcoAcum);
         }
 
 
-        public void matricularUnEstudiante(object Acudiente)
+        public void matricularUnEstudiante()
         {
             Console.Write("           Ingrese el id del estudiante: ");
-            id = Console.ReadLine();
+            Id = Console.ReadLine();
             Console.Write("           Ingrese el sexo del estudiante: ");
-            sexo = Console.ReadLine();
+            Sexo = Console.ReadLine();
             Console.Write("           Ingrese el nombre del estudiante: ");
-            nombre = Console.ReadLine();
+            Nombre = Console.ReadLine();
             Console.Write("           Ingrese el grado a cursar del estudiante: ");
-            gradoAcursar = Console.ReadLine();
+            GradoAcursar = Console.ReadLine();
             Console.Write("           Ingrese el promedio del estudiante: ");
-            promedio = Console.ReadLine();
+            Promedio = Console.ReadLine();
             Console.Write("           Ingrese la direccion de residencia del estudiante: ");
-            direccion = Console.ReadLine();
-            acudiente = Acudiente;
+            Direccion = Console.ReadLine();
+
+            Console.WriteLine("\n           Informacion del acudiente del estudiante\n");
+
+            Console.Write("           Ingrese el nombre del acudiente: ");
+            NombreAcudiente = Console.ReadLine();
+            Console.Write("           Ingrese el id del acudiente: ");
+            IdAcudiente = Console.ReadLine();
+            Console.Write("           Ingrese el sexo del acudiente: ");
+            SexoAcudiente = Console.ReadLine();
+            Console.Write("           Ingrese el contacto del acudiente: ");
+            ContactoAcudiente = Console.ReadLine();
+            Console.Write("           Ingrese el parentezco del acudiente: ");
+            ParentezcoAcudiente = Console.ReadLine();
+
+            acudiente = new Acudiente(NombreAcudiente, IdAcudiente, SexoAcudiente, ContactoAcudiente, ParentezcoAcudiente);
+
+
+
         }
 
 
@@ -56,10 +83,10 @@ namespace SistemaGestionEstudiantil
 
             foreach (Estudiante e in a)
             {
-                if (p == e.id)
+                if (p == e.Id)
                 {
-                    Console.WriteLine("                                       -----------------------------Opciones--------------------------------");
-                    Console.WriteLine("                                       1. Modificar ID");
+                    Console.WriteLine("\t-----------------------------Opciones--------------------------------");
+                    Console.WriteLine("\t\t1. Modificar ID");
                     Console.WriteLine("                                       2. Modificar Sexo");
                     Console.WriteLine("                                       3. Modificar Nombre");
                     Console.WriteLine("                                       4. Modificar Grado");
@@ -73,35 +100,35 @@ namespace SistemaGestionEstudiantil
                     if (m == 1)
                     {
                         Console.Write("                                                 Ingrese el nuevo id: ");
-                        e.id = Console.ReadLine();
+                        e.Id = Console.ReadLine();
                     }
                     else if (m == 2)
                     {
                         Console.Write("                                                 Ingrese el nuevo Sexo : ");
-                        e.sexo = Console.ReadLine();
+                        e.Sexo = Console.ReadLine();
                     }
                     else if (m == 3)
                     {
                         Console.Write("                                                 Ingrese el nuevo nombre : ");
-                        e.nombre = Console.ReadLine();
+                        e.Nombre = Console.ReadLine();
 
                     }
                     else if (m == 4)
                     {
                         Console.Write("                                                 Ingrese el nuevo Grado : ");
-                        e.gradoAcursar = Console.ReadLine();
+                        e.GradoAcursar = Console.ReadLine();
 
                     }
                     else if (m == 5)
                     {
                         Console.Write("                                                 Ingrese el nuevo Promedio : ");
-                        e.promedio = Console.ReadLine();
+                        e.Promedio = Console.ReadLine();
 
                     }
                     else if (m == 6)
                     {
                         Console.Write("                                                 Ingrese el nuevo Direccion :");
-                        e.direccion = Console.ReadLine();
+                        e.Direccion = Console.ReadLine();
 
                     }
                     Console.WriteLine("");
@@ -122,10 +149,10 @@ namespace SistemaGestionEstudiantil
             foreach (Estudiante e in a)
             {
                 
-                if (e.id == c)
+                if (e.Id == c)
                 {
-                    Console.WriteLine("\nLa información del estudiante con el ID " + e.id + " es: \nnombre: " +
-                            e.nombre + " \nsexo: " + e.sexo + "\ngrado a cursar: " + e.gradoAcursar + "\nPromedio: " + e.promedio + "\ndireccion: " + e.direccion);
+                    Console.WriteLine("\nLa información del estudiante con el ID " + e.Id + " es: \nnombre: " +
+                            e.Nombre + " \nsexo: " + e.Sexo + "\ngrado a cursar: " + e.GradoAcursar + "\nPromedio: " + e.Promedio + "\ndireccion: " + e.Direccion);
                     decoracion();
                 }
 
@@ -151,7 +178,7 @@ namespace SistemaGestionEstudiantil
 
             foreach (Estudiante e in a)
             {
-                if (e.id == c)
+                if (e.Id == c)
                 {
                     return e;
                 }

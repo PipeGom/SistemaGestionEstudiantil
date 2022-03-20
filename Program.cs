@@ -42,13 +42,12 @@ namespace SistemaGestionEstudiantil
                     do
                     {
                         E.decoracion(); 
-                        A.agregarAcudiente();
-                        ListAcudiente.Add(new Acudiente(A.id, A.sexo, A.nombre, A.contacto, A.parentezco));
-                        E.matricularUnEstudiante(A.pasarAcudiente(ListAcudiente));
+                        ListAcudiente.Add(new Acudiente(E.IdAcudiente, E.SexoAcudiente, E.NombreAcudiente, E.ContactoAcudiente, E.ParentezcoAcudiente));
+                        E.matricularUnEstudiante();
                         Console.WriteLine("\n                     Estudiante registrado con éxito \n");
 
                         // Se crea la lista de objetos para tener los estudiantes de manera dinamica
-                        ListEstudiantes.Add(new Estudiante(E.id, E.sexo, E.nombre, E.gradoAcursar, E.promedio, E.direccion, E.acudiente));
+                        ListEstudiantes.Add(new Estudiante(E.Id, E.Sexo, E.Nombre, E.GradoAcursar, E.Promedio, E.Direccion, E.NombreAcudiente, E.IdAcudiente, E.SexoAcudiente, E.ContactoAcudiente, E.ParentezcoAcudiente, E.acudiente));
 
                         Console.WriteLine("                     -----------------------------Opciones--------------------------------");
                         Console.WriteLine("                     1.Desea ingresar un nuevo estudiante ");
@@ -66,8 +65,8 @@ namespace SistemaGestionEstudiantil
                     //servira para acceder a los atributos y posiblemente modificarlos para la gestion. 
                     foreach (Estudiante e in ListEstudiantes)
                     {
-                        Console.WriteLine("\nEl id del estudiante es: " + e.id + "\nsexo: " + e.sexo + "\nnombre: " +
-                            e.nombre + "\ngrado a cursar: " + e.gradoAcursar + "\nPromedio: " + e.promedio + "\ndireccion: " + e.direccion + "\nacudiente: " + e.acudiente);
+                        Console.WriteLine("\nEl id del estudiante es: " + e.Id + "\nsexo: " + e.Sexo + "\nnombre: " +
+                            e.Nombre + "\ngrado a cursar: " + e.GradoAcursar + "\nPromedio: " + e.Promedio + "\ndireccion: " + e.Direccion + "\nacudiente: " + e.acudiente);
                     }
                 }
                 if(Op == 2)
@@ -82,11 +81,12 @@ namespace SistemaGestionEstudiantil
 
                     if (Ap == 1)
                     {
-
+                        Console.WriteLine("esta es la opcion 1");
                         E.modificarDatosEstudiante(ListEstudiantes);
                     }
                     else if (Ap == 2)
                     {
+                        Console.WriteLine("esta es la opcion 2");
                         E.solicitarInfoEstudiante(ListEstudiantes);
                     }
                    
@@ -101,11 +101,12 @@ namespace SistemaGestionEstudiantil
                     Ap = int.Parse(Console.ReadLine());
                     if (Ap == 1)
                     {
-                        A.modificarDatosAcudiente(ListAcudiente);
+                        A.modificarDatosAcudiente(ListEstudiantes);
                     }
                     else if (Ap == 2)
                     {
-                        A.solicitarInfoAcudiente(ListAcudiente);
+                        Console.WriteLine("esta es la opcion 2");
+                        A.solicitarInfoAcudiente(ListEstudiantes);
                     }
 
                 }
@@ -113,7 +114,6 @@ namespace SistemaGestionEstudiantil
 
             }
             while (true);
-            Console.ReadKey();
         }
     }
 }
