@@ -8,46 +8,38 @@ namespace SistemaGestionEstudiantil
 {
     internal class Acudiente
     {
-        public string id;
-        public string sexo;
-        public string nombre;
-        public string contacto;
-        public string parentezco;
+        private string idAcudiente;
+        private string sexoAcudiente;
+        private string nombreAcudiente;
+        private string contactoAcudiente;
+        private string parentezcoAcudiente;
 
 
         public Acudiente(string id = "", string sexo = "", string nombre = "", string contacto = "", string parentezco = "")
         {
 
-            this.id = id;
-            this.sexo = sexo;
-            this.nombre = nombre;
-            this.contacto = contacto;
-            this.parentezco = parentezco;
+            this.IdAcudiente = id;
+            this.SexoAcudiente = sexo;
+            this.NombreAcudiente = nombre;
+            this.ContactoAcudiente = contacto;
+            this.ParentezcoAcudiente = parentezco;
         }
 
-        public void agregarAcudiente()
-        {
-            Console.Write("           Ingrese el id del acudiente: ");
-            id = Console.ReadLine();
-            Console.Write("           Ingrese el sexo del acudiente: ");
-            sexo = Console.ReadLine();
-            Console.Write("           Ingrese el nombre del acudiente: ");
-            nombre = Console.ReadLine();
-            Console.Write("           Ingrese el contacto del acudiente: ");
-            contacto = Console.ReadLine();
-            Console.Write("           Ingrese el parentezco del acudiente: ");
-            parentezco = Console.ReadLine();
-        }
+        public string IdAcudiente { get => idAcudiente; set => idAcudiente = value; }
+        public string SexoAcudiente { get => sexoAcudiente; set => sexoAcudiente = value; }
+        public string NombreAcudiente { get => nombreAcudiente; set => nombreAcudiente = value; }
+        public string ContactoAcudiente { get => contactoAcudiente; set => contactoAcudiente = value; }
+        public string ParentezcoAcudiente { get => parentezcoAcudiente; set => parentezcoAcudiente = value; }
 
-        public void modificarDatosAcudiente(List<Acudiente> b)
+        public void modificarDatosAcudiente(List<Estudiante> b)
         {
     
             Console.Write("\n                              Ingrese el Id del acudiente que necesita modificar: ");
             string p = Console.ReadLine();
 
-            foreach (Acudiente e in b)
+            foreach (Estudiante e in b)
             {
-                if (p == e.id)
+                if (p == e.Id)  
                 {
                     Console.WriteLine("-----------------------------Opciones--------------------------------");
                     Console.WriteLine("1. Modificar ID");
@@ -61,27 +53,27 @@ namespace SistemaGestionEstudiantil
                     if (m == 1)
                     {
                         Console.WriteLine("Ingrese el nuevo id:\n");
-                        e.id = Console.ReadLine();
+                        e.IdAcudiente = Console.ReadLine();
                     }
                     else if (m == 2)
                     {
                         Console.WriteLine("Ingrese el nuevo Sexo :\n");
-                        e.sexo = Console.ReadLine();
+                        e.SexoAcudiente = Console.ReadLine();
                     }
                     else if (m == 3)
                     {
                         Console.WriteLine("Ingrese el nuevo Nombre :\n");
-                        e.nombre = Console.ReadLine();
+                        e.NombreAcudiente = Console.ReadLine();
                     }
                     else if (m == 4)
                     {
                         Console.WriteLine("Ingrese el nuevo Contacto :\n");
-                        e.contacto = Console.ReadLine();
+                        e.ContactoAcudiente = Console.ReadLine();
                     }
                     else if (m == 5)
                     {
                         Console.WriteLine("Ingrese el nuevo Parentezco :\n");
-                        e.parentezco = Console.ReadLine();
+                        e.ParentezcoAcudiente = Console.ReadLine();
                     }
                   
                 }
@@ -90,38 +82,23 @@ namespace SistemaGestionEstudiantil
 
         }
 
-        public string solicitarInfoAcudiente(List<Acudiente> b)
+        public string solicitarInfoAcudiente(List<Estudiante> b)
         {
-            Console.Write("\n                              Ingrese el Id del acudiente que necesita Consultar: ");
+            Console.Write("\n                              Ingrese el Id del Estudiante para conocer su respectivo acudiente: ");
             string j = Console.ReadLine();
 
             //Para buscar un atributo de un estudiante dentro de la lista 
-            foreach (Acudiente e in b)
+            foreach (Estudiante e in b)
             {
-                if (j == e.id)
+                if (j == e.Id)
                 {
-                    Console.WriteLine("\n                                       El id del acudiente es: " + e.id + "\n                                       sexo: " + e.sexo + "\n                                       nombre: " +
-                        e.nombre + "\n                                       contacto: " + "\n                                       parentezco: " + e.parentezco + "\n");
+                    Console.WriteLine("\n                                       El id del acudiente es: " + e.IdAcudiente + "\n                                       sexo: " + e.SexoAcudiente + "\n                                       nombre: " +
+                        e.NombreAcudiente + "\n                                       contacto: " + "\n                                       parentezco: " + e.ParentezcoAcudiente + "\n");
                 }
             }
             return "                                       No se encontro el acudiente :( \n";
         }
 
-        public object pasarAcudiente(List<Acudiente> b)
-        {
-            Console.Write("\n           Ingrese el Id del acudiente del estudiante: ");
-            string j = Console.ReadLine();
-            Console.WriteLine("");
-
-            //Para buscar un atributo de un estudiante dentro de la lista 
-            foreach (Acudiente e in b)
-            {
-                if (j == e.id)
-                {
-                    return e;
-                }
-            }
-            return "No se encontro el acudiente (*/ω＼*) ";
-        }
+        
     }
 }
