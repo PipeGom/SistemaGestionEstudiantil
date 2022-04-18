@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaGestionEstudiantil
 {
-    internal class Acudiente
+    public class Acudiente
     {
         private string idAcudiente;
         private string sexoAcudiente;

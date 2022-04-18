@@ -10,8 +10,10 @@ namespace SistemaGestionEstudiantil
     {
         static void Main(string[] args)
         {
+            // Se comenta porque ya no se usara 
 
-            int Op;
+
+            /*int Op;
             int Ap;
             List<Estudiante> ListEstudiantes = new List<Estudiante>();
             Estudiante E = new Estudiante();
@@ -43,7 +45,7 @@ namespace SistemaGestionEstudiantil
                     {
                         E.decoracion(); 
                         ListAcudiente.Add(new Acudiente(E.IdAcudiente, E.SexoAcudiente, E.NombreAcudiente, E.ContactoAcudiente, E.ParentezcoAcudiente));
-                        E.matricularUnEstudiante();
+                        //E.matricularUnEstudiante();
                         Console.WriteLine("\n                     Estudiante registrado con éxito \n");
 
                         // Se crea la lista de objetos para tener los estudiantes de manera dinamica
@@ -113,7 +115,7 @@ namespace SistemaGestionEstudiantil
 
 
             }
-            while (true);
+            while (true);*/
         }
     }
 }
