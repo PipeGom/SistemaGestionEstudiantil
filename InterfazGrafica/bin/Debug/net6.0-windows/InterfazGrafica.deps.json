@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "InterfazGrafica/1.0.0": {
+        "dependencies": {
+          "SistemaGestionEstudiantil": "1.0.0"
+        },
+        "runtime": {
+          "InterfazGrafica.dll": {}
+        }
+      },
+      "SistemaGestionEstudiantil/1.0.0": {
+        "runtime": {
+          "SistemaGestionEstudiantil.exe": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "InterfazGrafica/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SistemaGestionEstudiantil/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
